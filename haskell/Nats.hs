@@ -1,6 +1,7 @@
     module Nat where       
 
     import Prelude hiding (Num(..))
+    import Prelude hiding (Float(..))
 
     data Nat where
         O :: Nat
@@ -32,4 +33,9 @@
 
     times _ O = O
     times n (S m) = plus n (times n m)
+
+    expo :: Nat -> Nat -> Nat
+
+    expo _ O = so
+    expo n (S m) = times n (expo n m) 
 
