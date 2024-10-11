@@ -1,6 +1,6 @@
     module Algorithm where
     import Nats
-    import Prelude hiding (min, max)
+    import Prelude hiding (min, max, pred)
 
     min :: (Nat,Nat) -> Nat
 
@@ -13,3 +13,10 @@
     max (O,n) = n
     max (n,O) = n
     max (S n, S m) = S (max (n, m))
+
+    pred :: Nat -> Nat
+
+    pred O = O
+    pred (S n) = n
+
+
