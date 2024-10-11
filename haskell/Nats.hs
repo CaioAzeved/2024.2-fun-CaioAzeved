@@ -40,6 +40,6 @@
 
     sub :: Nat -> Nat -> Nat
 
-    sub O _ = O
     sub n O = n
-    sub (S n) (S m) = sub n m  
+    sub (S n) (S m) = sub n m
+    sub O _ = O  
