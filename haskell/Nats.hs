@@ -37,5 +37,8 @@
     expo :: Nat -> Nat -> Nat
 
     expo _ O = so
-    expo n (S m) = times n (expo n m) 
+    expo n (S m) = times n (expo n m)
 
+    double :: Nat -> Nat
+
+    double n = times n n
