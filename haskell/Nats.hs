@@ -38,17 +38,4 @@
     exp _ O = so
     exp n (S m) = times n (exp n m)
 
-    double :: Nat -> Nat
-
-    double n = times n n
-
-    fact :: Nat -> Nat
-
-    fact O = so
-    fact (S n) = times (S n) (fact n)
-
-    fib :: Nat -> Nat
-
-    fib O = so
-    fib (S O) = so
-    fib (S (S n)) = plus (fib (S n)) (fib n)
+    
