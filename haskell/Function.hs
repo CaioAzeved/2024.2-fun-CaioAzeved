@@ -1,4 +1,4 @@
-    module Algorithm where
+    module Function where
     import Nats
     import Prelude hiding (min, max, pred)
 
