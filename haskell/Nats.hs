@@ -42,3 +42,8 @@
     double :: Nat -> Nat
 
     double n = times n n
+
+    fact :: Nat -> Nat
+
+    fact O = so
+    fact (S n) = times (S n) (fact n)
