@@ -36,6 +36,7 @@
 
     quot :: (Nat, Nat) -> Nat
 
+    quot (_,O) = error"Indeterminado"
     quot (n, m) = 
         if max(n,m) == n
         then S (quot (sub n m, m))
@@ -43,6 +44,7 @@
 
     rem :: (Nat, Nat) -> Nat
 
+    rem (_,O) = error"Indeterminado"
     rem (n,m) = 
         if max(n,m) == n
         then rem (sub n m, m)
