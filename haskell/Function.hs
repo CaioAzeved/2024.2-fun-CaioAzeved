@@ -1,6 +1,6 @@
     module Function where
     import Nats
-    import Prelude hiding (min, max, pred)
+    import Prelude hiding (min, max, pred, quot)
 
     double :: Nat -> Nat
 
@@ -34,4 +34,18 @@
     pred O = O
     pred (S n) = n
 
+    quot :: (Nat, Nat) -> Nat
 
+    quot (n, m) = 
+        if max(n,m) == n
+        then S (quot (sub n m, m))
+        else O
+
+    --rem :: (Nat, Nat) -> Nat
+
+    --rem
+    --rem
+
+    --div :: (Nat, Nat) -> (Nat,Nat)
+
+    --div n m = (quot(n,m),rem(n,m))
