@@ -34,10 +34,10 @@
     times _ O = O
     times n (S m) = plus n (times n m)
 
-    expo :: Nat -> Nat -> Nat
+    pow :: Nat -> Nat -> Nat
 
-    expo _ O = so
-    expo n (S m) = times n (expo n m)
+    pow _ O = so
+    pow n (S m) = times n (pow n m)
 
     double :: Nat -> Nat
 
