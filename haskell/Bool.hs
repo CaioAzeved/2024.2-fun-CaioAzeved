@@ -11,3 +11,8 @@
 
     band True True = True
     band _ _ = False
+
+    bor :: Bool -> Bool -> Bool
+
+    bor False False = False
+    bor _ _ = True 
