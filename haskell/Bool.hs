@@ -16,3 +16,8 @@
 
     bor False False = False
     bor _ _ = True 
+
+    bnot :: Bool -> Bool
+
+    bnot True = False
+    bnot _ = True
