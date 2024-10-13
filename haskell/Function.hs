@@ -1,5 +1,5 @@
     module Function where
-    import Nats
+    import Nat
     import Prelude hiding (min, max, pred, quot, rem, div)
 
     double :: Nat -> Nat
