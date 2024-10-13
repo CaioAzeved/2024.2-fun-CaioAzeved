@@ -1,5 +1,6 @@
     module Bool where       
-
+    
+    import Nat
     import Prelude hiding (Bool, True, False)
 
     data Bool where
@@ -21,3 +22,13 @@
 
     bnot True = False
     bnot _ = True
+
+    if_then_else :: Bool -> a -> a -> a
+
+    if_then_else True x _ = x
+    if_then_else False _ x = x
+
+    equal :: a -> a -> Bool
+
+    equal x x = True
+    equal _ _ = False 
