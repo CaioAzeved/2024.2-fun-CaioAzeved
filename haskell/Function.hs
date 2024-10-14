@@ -3,9 +3,6 @@
     import Bool
     import Prelude hiding (min, max, pred, quot, rem, div, Bool, True, False)
 
-    comp :: (b -> c) -> (a -> b) -> (a -> c)
-    comp f g = \x -> f(g x)
-
     double :: Nat -> Nat
     double n = times n n
 
@@ -40,8 +37,7 @@
 
     leq :: Nat -> Nat -> Bool
 
-    leq _ O = False
-    leq O _ = True
+    leq n m = comp bnot (geq n) m
 
     quot :: (Nat, Nat) -> Nat
     quot (_,O) = error"Indeterminado"
