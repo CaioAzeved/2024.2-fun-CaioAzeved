@@ -34,4 +34,6 @@
     bxor False False = True
     bxor _ _ = False
 
-    
+    bnand :: Bool -> Bool -> Bool
+
+    bnand x y = comp bnot  (band x) y
