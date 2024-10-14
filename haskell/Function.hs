@@ -1,6 +1,10 @@
     module Function where
     import Nat
-    import Prelude hiding (min, max, pred, quot, rem, div)
+    import Bool
+    import Prelude hiding (min, max, pred, quot, rem, div, Bool, True, False)
+
+    comp :: (b -> c) -> (a -> b) -> (a -> c)
+    comp f g = \x -> f(g x)
 
     double :: Nat -> Nat
     double n = times n n
@@ -27,6 +31,17 @@
     pred :: Nat -> Nat
     pred O = O
     pred (S n) = n
+
+    geq :: Nat -> Nat -> Bool
+
+    geq _ O = True
+    geq O _ = False
+    geq (S n) (S m) = geq n m
+
+    leq :: Nat -> Nat -> Bool
+
+    leq _ O = False
+    leq O _ = True
 
     quot :: (Nat, Nat) -> Nat
     quot (_,O) = error"Indeterminado"
