@@ -28,7 +28,10 @@
     if_then_else True x _ = x
     if_then_else False _ x = x
 
-    equal :: a -> a -> Bool
+    bxor :: Bool -> Bool -> Bool
 
-    equal x x = True
-    equal _ _ = False 
+    bxor True True = True
+    bxor False False = True
+    bxor _ _ = False
+
+    
