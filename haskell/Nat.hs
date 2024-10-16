@@ -1,5 +1,5 @@
     module Nat where       
-
+    import PolyFunctions
     import Prelude hiding (Num(..), exp)
 
     data Nat where
@@ -39,6 +39,3 @@
     sub n O = n
     sub (S n) (S m) = sub n m
     sub O _ = O  
-
-    comp :: (b -> c) -> (a -> b) -> (a -> c)
-    comp f g = \x -> f(g x)

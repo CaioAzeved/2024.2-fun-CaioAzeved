@@ -35,9 +35,9 @@
     geq O _ = False
     geq (S n) (S m) = geq n m
 
-    leq :: Nat -> Nat -> Bool
+    --leq :: Nat -> Nat -> Bool
 
-    leq n m = comp bnot (geq n) m
+    --leq n m = comp bnot (geq n) m
 
     quot :: (Nat, Nat) -> Nat
     quot (_,O) = error"Indeterminado"

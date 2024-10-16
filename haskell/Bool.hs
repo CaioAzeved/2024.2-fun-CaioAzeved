@@ -36,4 +36,5 @@
 
     bnand :: Bool -> Bool -> Bool
 
-    bnand x y = comp bnot  (band x) y
+    bnand True True = False
+    bnand _ _ = True 
