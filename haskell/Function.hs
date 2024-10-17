@@ -3,6 +3,12 @@
     import Bool
     import Prelude hiding (min, max, pred, quot, rem, div, Bool, True, False)
 
+    comp :: (b->c) -> (a->b) -> a -> c
+    comp g f x = g (f x)
+
+    (°) :: (b -> c) -> (a -> b) -> (a -> c)
+    (°) = comp
+
     double :: Nat -> Nat
     double n = times n n
 
