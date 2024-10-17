@@ -1,4 +1,5 @@
     module List where
+    import Prelude hiding ((++))
     import Nat 
     --import ListNat hiding (lenght)
 
@@ -10,3 +11,7 @@
     lenght :: List a -> Nat
     lenght Nil = O
     lenght (Cons x xs) = S (lenght xs)
+
+    (++) :: List a -> List a -> List a
+    Nil ++ xs = xs
+    (Cons x xs) ++ ys = Cons x (xs ++ ys)
