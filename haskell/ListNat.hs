@@ -14,3 +14,8 @@
 
     lenght Nil = O
     lenght (_ `Cons` xs) = S (lenght xs)
+
+    pw :: (Nat -> Nat -> Nat) -> ListNat -> ListNat -> ListNat
+    pw _ Nil xs = xs
+    pw _ xs Nil = xs
+    pw f (Cons x xs) (Cons y ys) = Cons (f x y) (pw f xs ys) 
