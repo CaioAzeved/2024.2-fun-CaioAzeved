@@ -142,12 +142,13 @@ n <%> m =
 
 -- divides
 (<|>) :: Nat -> Nat -> Bool
--- _ <|> O = True
+_ <|> O = True
 O <|> _ = False
 n <|> m = 
     if (m <%> n) == O
     then True
     else False
+
  
 
 divides = (<|>)
