@@ -75,10 +75,11 @@ lenght (x : xs) = 1 + (lenght xs)
 
 sum :: Num a => [a] -> a
 sum [] = 0
-sum 
+sum (x : xs) = x + (sum xs)
 
 product :: Num a => [a] -> a
-product = undefined
+product [] = 1
+product (x : xs) = x * (product xs)
 
 reverse :: [a] -> [a]
 reverse = undefined
