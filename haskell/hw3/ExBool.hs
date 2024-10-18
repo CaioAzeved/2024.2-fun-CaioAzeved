@@ -60,13 +60,16 @@ infixr 2 /|\
 
 -- NOR (aka: Peirce arrow or Quine dagger)
 (\|/) :: Bool -> Bool -> Bool
-(\|/) = undefined
+False \|/ False = True
+_ \|/ _ = False 
 
 infixr 2 \|/
 
 -- XOR (exclusive disjunction)
 (<=/=>) :: Bool -> Bool -> Bool
-(<=/=>) = undefined
+True <=/=> True = False
+False <=/=> False = False
+_ <=/=> _ = True
 
 infixr 2 <=/=>
 
