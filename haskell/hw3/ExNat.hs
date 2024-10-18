@@ -103,7 +103,8 @@ O <-> _ = O
 
 -- multiplication
 (<*>) :: Nat -> Nat -> Nat
-(<*>) = undefined
+_ <*> O = O 
+n <*> S m = n <+> (n <*> m)
 
 -- exponentiation
 (<^>) :: Nat -> Nat -> Nat
