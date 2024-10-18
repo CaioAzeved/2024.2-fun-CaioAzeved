@@ -66,7 +66,8 @@ instance Ord Nat where
 ----------------------------------------------------------------
 
 isZero :: Nat -> Bool
-isZero = undefined
+isZero O =  True
+isZero _ = False 
 
 -- pred is the predecessor but we define zero's to be zero
 pred :: Nat -> Nat
