@@ -53,7 +53,8 @@ instance Ord Nat where
     -- Howevener, you should define them WITHOUT using (<=).
     -- Both are binary functions: max m n = ..., etc.
 
-    min = undefined
+    min (S n) (S m) = S (min n m)
+    min _ _ = O 
 
     max = undefined
 
