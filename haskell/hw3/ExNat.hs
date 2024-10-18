@@ -129,7 +129,7 @@ n <^> S m = n <*> (n <^> m)
 _ </> O = error"Indeterminado"
 n </> m  = 
     if m <= n 
-    then S ((n <-> m) <-> m)
+    then S ((n <-> m) </> m)
     else O
 
 -- remainder
@@ -174,7 +174,12 @@ sg _ = S O
 
 -- lo b a is the floor of the logarithm base b of a
 lo :: Nat -> Nat -> Nat
-lo = undefined
+lo O _ = error"Nunca serás O"
+lo _ O = S O
+lo n m = 
+    if n <= m
+    then S (lo n (m </> n))
+    else O
 
 
 ----------------------------------------------------------------
