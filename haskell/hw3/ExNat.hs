@@ -56,7 +56,9 @@ instance Ord Nat where
     min (S n) (S m) = S (min n m)
     min _ _ = O 
 
-    max = undefined
+    max n O = n
+    max O n = n
+    max (S n) (S m) = S (max n m)
 
 
 ----------------------------------------------------------------
