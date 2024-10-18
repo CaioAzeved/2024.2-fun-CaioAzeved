@@ -82,10 +82,12 @@ product [] = 1
 product (x : xs) = x * (product xs)
 
 reverse :: [a] -> [a]
-reverse = undefined
+reverse [] = []
+reverse (x : xs) = (reverse xs) ++ [x]
 
 (++) :: [a] -> [a] -> [a]
-(++) = undefined
+[] ++ xs = xs
+(x : xs) ++ ys = x : (xs ++ ys) 
 
 -- right-associative for performance!
 -- (what?!)
