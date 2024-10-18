@@ -175,8 +175,8 @@ sg _ = S O
 
 -- lo b a is the floor of the logarithm base b of a
 lo :: Nat -> Nat -> Nat
-lo O _ = error"Nunca serás O"
-lo _ O = S O
+lo _ O = error"Nunca serás O"
+--lo _ O = S O
 lo n m = 
     if n <= m
     then S (lo n (m </> n))
