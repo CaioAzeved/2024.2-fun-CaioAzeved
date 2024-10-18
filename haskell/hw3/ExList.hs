@@ -70,10 +70,12 @@ null [] = True
 null _ = False
 
 length :: Integral i => [a] -> i
-length = undefined
+length [] = 0
+lenght (x : xs) = 1 + (lenght xs) 
 
 sum :: Num a => [a] -> a
-sum = undefined
+sum [] = 0
+sum 
 
 product :: Num a => [a] -> a
 product = undefined
