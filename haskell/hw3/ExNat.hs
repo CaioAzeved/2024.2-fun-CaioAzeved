@@ -108,7 +108,8 @@ n <*> S m = n <+> (n <*> m)
 
 -- exponentiation
 (<^>) :: Nat -> Nat -> Nat
-(<^>) = undefined
+_ <^> O = S O
+n <^> S m = n <*> (n <^> m)
 
 -- quotient
 (</>) :: Nat -> Nat -> Nat
