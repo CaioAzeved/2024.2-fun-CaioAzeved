@@ -89,14 +89,17 @@ odd (S n) = even n
 
 -- addition
 (<+>) :: Nat -> Nat -> Nat
-(<+>) = undefined
+n <+> O = n
+n <+> S m = S (n <+> m)
 
 -- This is called the dotminus or monus operator
 -- (also: proper subtraction, arithmetic subtraction, ...).
 -- It behaves like subtraction, except that it returns 0
 -- when "normal" subtraction would return a negative number.
 (<->) :: Nat -> Nat -> Nat
-(<->) = undefined
+n <-> O = n
+S n <-> S m = n <-> m
+O <-> _ = O
 
 -- multiplication
 (<*>) :: Nat -> Nat -> Nat
