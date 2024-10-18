@@ -113,15 +113,23 @@ n <^> S m = n <*> (n <^> m)
 
 -- quotient
 (</>) :: Nat -> Nat -> Nat
-(</>) = undefined
+_ </> O = error"Indeterminado"
+n </> m  = 
+    if m <= n 
+    then S ((n <-> m) <-> m)
+    else O
 
 -- remainder
 (<%>) :: Nat -> Nat -> Nat
-(<%>) = undefined
+_ <%> O = error"Indeterminado"
+n <%> m =
+    if m <= n
+    then (n <-> m) <%> m
+    else n
 
 -- divides
 (<|>) :: Nat -> Nat -> Bool
-(<|>) = undefined
+n <|> m = undefined
 
 divides = (<|>)
 
