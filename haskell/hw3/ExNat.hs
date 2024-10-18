@@ -26,6 +26,19 @@ data Nat where
   O :: Nat
   S :: Nat -> Nat
 
+--useful sugars
+o, so, sso, ssso, sssso, ssssso, sssssso, ssssssso, sssssssso, ssssssssso :: Nat
+o    = O
+so   = S o
+sso  = S so
+ssso = S sso
+sssso = S ssso
+ssssso = S sssso
+sssssso = S ssssso
+ssssssso = S sssssso
+sssssssso = S ssssssso
+ssssssssso = S sssssssso
+
 ----------------------------------------------------------------
 -- typeclass implementations
 ----------------------------------------------------------------
@@ -143,7 +156,9 @@ divides = (<|>)
 -- x `absDiff` y = |x - y|
 -- (Careful here: this - is the real minus operator!)
 absDiff :: Nat -> Nat -> Nat
-absDiff = undefined
+absDiff n O = n
+absDiff (S n) (S m) = absDiff n m
+absDiff O n = n
 
 (|-|) = absDiff
 
