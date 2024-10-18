@@ -185,10 +185,14 @@ lo = undefined
 -- Do NOT use the following functions in the definitions above!
 
 toNat :: Integral a => a -> Nat
-toNat = undefined
+toNat i = 
+    if i > 0
+    then S (toNat (i - 1))
+    else O
 
 fromNat :: Integral a => Nat -> a
-fromNat = undefined
+fromNat O = 0
+fromNat (S n) = 1 + (fromNat n)
 
 
 -- Voilá: we can now easily make Nat an instance of Num.
