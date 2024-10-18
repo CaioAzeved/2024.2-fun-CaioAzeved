@@ -163,7 +163,9 @@ absDiff O n = n
 (|-|) = absDiff
 
 factorial :: Nat -> Nat
-factorial = undefined
+factorial O = S O
+factorial (S n) = S n <*> (factorial n) 
+
 
 -- signum of a number (-1, 0, or 1)
 sg :: Nat -> Nat
