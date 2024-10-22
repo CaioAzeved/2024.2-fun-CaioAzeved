@@ -114,15 +114,24 @@ infixl 5 +++
 minimum :: Ord a => [a] -> a
 minimum [] = error"Não há mínimo"
 minimum [x] = x
-minimum (x:xs) = min x (minimum xs)
+minimum (x : xs) = min x (minimum xs)
 
 maximum :: Ord a => [a] -> a
 maximum [] = error"Não há máximo"
 maximum [x] = x
-maximum (x:xs) = max x (maximum xs)
+maximum (x : xs) = max x (maximum xs)
 
--- take
--- drop
+take :: Int -> [a] -> [a]
+take n (x : xs)
+  | n <= 0 = []
+  | otherwise = x : (take (n-1) xs)
+take _ [] = []
+
+drop :: Int -> [a] -> [a]
+drop n (x : xs)
+  | n <= 0 = x : xs
+  | otherwise = drop (n-1) xs 
+drop _ xs = xs
 
 -- takeWhile
 -- dropWhile
