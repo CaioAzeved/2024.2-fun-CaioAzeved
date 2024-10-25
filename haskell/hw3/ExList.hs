@@ -188,6 +188,10 @@ map :: (a -> b) -> [a] -> [b]
 map _ [] = []
 map f (x : xs) = f x : (map f xs)
 
+fold :: a -> (a -> a -> a) -> [a] -> a
+fold i op [] = i
+fold i op (x : xs) = op x (fold i op xs)
+
 -- cycle
 -- repeat
 -- replicate
