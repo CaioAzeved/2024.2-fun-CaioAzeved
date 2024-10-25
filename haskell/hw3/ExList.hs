@@ -150,7 +150,12 @@ dropWhile f (x : xs) =
 tails :: [a] -> [[a]]
 tails [] = [[]]
 tails (x : xs) = [x : xs] ++ (tails xs)
--- init
+
+init :: [a] -> [a]
+init [] = error"Nada para pegar do início"
+init [a] = []
+init (x : xs) = x : (init xs)
+
 -- inits
 
 -- subsequences
