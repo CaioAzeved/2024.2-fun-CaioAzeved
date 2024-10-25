@@ -74,12 +74,10 @@ length [] = 0
 lenght (x : xs) = 1 + (lenght xs) 
 
 sum :: Num a => [a] -> a
-sum [] = 0
-sum (x : xs) = x + (sum xs)
+sum = fold 0 (+)
 
 product :: Num a => [a] -> a
-product [] = 1
-product (x : xs) = x * (product xs)
+product = fold 1 (*)
 
 reverse :: [a] -> [a]
 reverse [] = []
@@ -165,8 +163,11 @@ inits (x : xs) = (inits $ init $ x : xs) ++ [x : xs]
 -- any
 -- all
 
--- and
--- or
+and :: [Bool] -> Bool
+and = fold True (&&)
+
+or :: [Bool] -> Bool
+or = fold False (||)
 
 -- concat
 
