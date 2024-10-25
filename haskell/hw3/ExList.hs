@@ -160,8 +160,17 @@ inits (x : xs) = (inits $ init $ x : xs) ++ [x : xs]
 
 -- subsequences
 
--- any
--- all
+toListBool :: (a -> Bool) -> [a] -> [Bool]
+toListBool _ [] = []
+toListBool p (x : xs) = 
+  if p x
+  then True : (toListBool p xs)
+  else False : (toListBool p xs)
+
+any :: (a -> Bool) -> [a] -> Bool
+any p xs = or (toListBool p xs)
+
+all p xs = and (toListBool p xs)
 
 and :: [Bool] -> Bool
 and = fold True (&&)
