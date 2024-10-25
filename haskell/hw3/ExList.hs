@@ -156,7 +156,9 @@ init [] = error"Nada para pegar do início"
 init [a] = []
 init (x : xs) = x : (init xs)
 
--- inits
+inits :: [a] -> [[a]]
+inits [] = [[]]
+inits (x : xs) = (inits $ init $ x : xs) ++ [x : xs]
 
 -- subsequences
 
