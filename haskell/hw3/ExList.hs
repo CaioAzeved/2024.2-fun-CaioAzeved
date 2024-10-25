@@ -178,13 +178,15 @@ inits (x : xs) = (inits $ init $ x : xs) ++ [x : xs]
 -- (!!)
 
 filter :: (a -> Bool) -> [a] -> [a]
-filter p [] = []
+filter _ [] = []
 filter p (x: xs) = 
   if p x
   then x : (filter p xs)
   else filter p xs
 
--- map
+map :: (a -> b) -> [a] -> [b]
+map _ [] = []
+map f (x : xs) = f x : (map f xs)
 
 -- cycle
 -- repeat
