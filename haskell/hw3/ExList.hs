@@ -147,7 +147,9 @@ dropWhile f (x : xs) =
   then dropWhile f xs
   else x : xs
 
--- tails
+tails :: [a] -> [[a]]
+tails [] = [[]]
+tails (x : xs) = [x : xs] ++ (tails xs)
 -- init
 -- inits
 
