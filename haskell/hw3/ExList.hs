@@ -170,6 +170,7 @@ toListBool p (x : xs) =
 any :: (a -> Bool) -> [a] -> Bool
 any p xs = or (toListBool p xs)
 
+all :: (a -> Bool) -> [a] -> Bool
 all p xs = and (toListBool p xs)
 
 and :: [Bool] -> Bool
@@ -181,9 +182,17 @@ or = fold False (||)
 -- concat
 
 -- elem using the funciton 'any' above
+elem :: Eq a => a -> [a] -> Bool
+elem x xs = any (== x) xs
 
 -- elem': same as elem but elementary definition
 -- (without using other functions except (==))
+elem' :: Eq a => a -> [a] -> Bool
+elem' x [] = False
+elem' x (y : ys) = 
+  if x == y
+  then True
+  else elem' x ys
 
 -- (!!)
 
