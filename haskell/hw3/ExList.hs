@@ -179,7 +179,8 @@ and = fold True (&&)
 or :: [Bool] -> Bool
 or = fold False (||)
 
--- concat
+concat :: [[a]] -> [a]
+concat = fold [] (++)
 
 -- elem using the funciton 'any' above
 elem :: Eq a => a -> [a] -> Bool
