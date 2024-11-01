@@ -195,7 +195,12 @@ elem' x (y : ys) =
   then True
   else elem' x ys
 
--- (!!)
+(!!) :: [a] -> Int -> a
+[] !! _ = error"Lista vazia"
+(x:xs) !! n
+  | n == 0 = x
+  | n < 0 = error"Não há índice negativo"
+  | n > 0 = xs !! (n-1)
 
 filter :: (a -> Bool) -> [a] -> [a]
 filter _ [] = []
