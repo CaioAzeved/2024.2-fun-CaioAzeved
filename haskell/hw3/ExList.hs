@@ -223,9 +223,24 @@ repeat x = cycle [x]
 replicate :: Int -> a -> [a]
 replicate z = take z . repeat 
 
--- isPrefixOf
--- isInfixOf
--- isSuffixOf
+isPrefixOf :: Eq a => [a] -> [a] -> Bool
+isPrefixOf (x:xs) (y:ys) =
+  if x == y
+  then (isPrefixOf xs ys) && True
+  else False
+isPrefixOf [] _ = True
+isPrefixOf _ [] = False
+
+isInfixOf :: Eq a => [a] -> [a] -> Bool
+isInfixOf (x:xs) (y:ys) = 
+  if x == y
+  then (isInfixOf xs ys) && True
+  else isInfixOf (x:xs) ys
+isInfixOf [] _ = True
+isInfixOf _ [] = False
+
+isSuffixOf :: Eq a => [a] -> [a] -> Bool
+isSuffixOf (x:xs) (y:ys) = isPrefixOf (reverse $ x:xs) (reverse $ y:ys)
 
 -- zip
 -- zipWith
