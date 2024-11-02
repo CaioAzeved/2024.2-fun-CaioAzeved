@@ -196,7 +196,7 @@ elem' x (y : ys) =
   else elem' x ys
 
 (!!) :: [a] -> Int -> a
-[] !! _ = error"Lista vazia"
+[] !! _ = error"Índice muito grande para esta lista"
 (x:xs) !! n
   | n == 0 = x
   | n < 0 = error"Não há índice negativo"
@@ -219,8 +219,14 @@ fold i op (x : xs) = op x (fold i op xs)
 
 -- cycle
 -- repeat
--- replicate
-
+{-
+replicate :: Int -> a -> [a]
+replicate 0 _ = []
+replicate n x =
+  if n > 0
+  then
+  else
+-}
 -- isPrefixOf
 -- isInfixOf
 -- isSuffixOf
@@ -245,8 +251,8 @@ fold i op (x : xs) = op x (fold i op xs)
 -- transpose
 
 -- checks if the letters of a phrase form a palindrome (see below for examples)
-palindrome :: String -> Bool
-palindrome = undefined
+--palindrome :: String -> Bool
+--palindrome = undefined
 
 {-
 
@@ -257,6 +263,4 @@ Examples of palindromes:
 "Mr. Owl ate my metal worm."
 "Was it a car or a cat I saw?"
 "Doc, note I dissent.  A fast never prevents a fatness.  I diet on cod."
-
 -}
-
