@@ -265,8 +265,14 @@ pairs :: [a] -> [(a,a)]
 pairs (x:(x':xs)) = (x,x') : (pairs (x':xs))
 pairs _ = []
 
--- intercalate
--- nub
+intercalate :: [a] -> [[a]] -> [a]
+intercalate _ [] = []
+intercalate _ [(x:xs)] = x:xs
+intercalate xs (y:ys) = y ++ xs ++ (intercalate xs ys)
+
+nub :: Eq a => [a] -> [a]
+nub [] = []
+nub (x:xs) = x:(filter (x /=) (nub xs))
 
 -- splitAt
 -- what is the problem with the following?:
