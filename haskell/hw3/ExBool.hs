@@ -32,7 +32,7 @@ instance Show Bool where
 instance Enum Bool where
 
     toEnum 0 = True
-    toEnum 1 = False
+    toEnum _ = False
 
     fromEnum True = 0
     fromEnum False = 1
@@ -102,5 +102,3 @@ infixl 1 <==
 b <=> b' = not (b <=/=> b')
 
 infixr 1 <=>
-
-
