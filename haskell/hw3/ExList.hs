@@ -252,14 +252,18 @@ zipWith _ _ _ = []
 
 -- define zip in terms of zipWith
 zip' :: [a] -> [b] -> [(a,b)]
-zip' = zipWith pair 
+zip' = zipWith (,) 
 
 -- define zipWith in terms of zipWith
 zipWith' :: (a -> b -> c) -> [a] -> [b] -> [c]
 zipWith' f xs = map (uncurry f) . zip xs
 
-pair :: a -> b -> (a,b)
-pair x y = (x,y)
+--pair :: a -> b -> (a,b)
+--pair x y = (x,y)
+
+pairs :: [a] -> [(a,a)]
+pairs (x:(x':xs)) = (x,x') : (pairs (x':xs))
+pairs _ = []
 
 -- intercalate
 -- nub
