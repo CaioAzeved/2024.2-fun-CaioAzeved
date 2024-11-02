@@ -133,16 +133,16 @@ drop _ xs = xs
 
 takeWhile :: (a -> Bool) -> [a] -> [a]
 takeWhile _ [] = []
-takeWhile f (x : xs) = 
-  if f x
-  then x : (takeWhile f xs)
+takeWhile p (x : xs) = 
+  if p x
+  then x : (takeWhile p xs)
   else []
 
 dropWhile :: (a -> Bool) -> [a] -> [a]
 dropWhile _ [] = []
-dropWhile f (x : xs) = 
-  if f x
-  then dropWhile f xs
+dropWhile p (x : xs) = 
+  if p x
+  then dropWhile p xs
   else x : xs
 
 tails :: [a] -> [[a]]
@@ -150,7 +150,7 @@ tails [] = [[]]
 tails (x : xs) = [x : xs] ++ (tails xs)
 
 init :: [a] -> [a]
-init [] = error"Nada para pegar do início"
+init [] = error"Tente com uma lista habitada"
 init [a] = []
 init (x : xs) = x : (init xs)
 
@@ -161,17 +161,13 @@ inits (x : xs) = (inits $ init $ x : xs) ++ [x : xs]
 -- subsequences
 
 toListBool :: (a -> Bool) -> [a] -> [Bool]
-toListBool _ [] = []
-toListBool p (x : xs) = 
-  if p x
-  then True : (toListBool p xs)
-  else False : (toListBool p xs)
+toListBool p = map p
 
 any :: (a -> Bool) -> [a] -> Bool
-any p xs = or (toListBool p xs)
+any p = or . (toListBool p)
 
 all :: (a -> Bool) -> [a] -> Bool
-all p xs = and (toListBool p xs)
+all p = and . (toListBool p)
 
 and :: [Bool] -> Bool
 and = fold True (&&)
@@ -225,12 +221,7 @@ repeat :: a -> [a]
 repeat x = cycle [x]
 
 replicate :: Int -> a -> [a]
-replicate z x = take z (repeat x)
-{-replicate 0 _ = []
-replicate n x =
-  if n > 0
-  then x:(replicate (n-1) x)
-  else error"Tente um índice não negativo"-}
+replicate z = take z . repeat 
 
 -- isPrefixOf
 -- isInfixOf
