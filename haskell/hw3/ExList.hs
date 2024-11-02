@@ -242,8 +242,24 @@ isInfixOf _ [] = False
 isSuffixOf :: Eq a => [a] -> [a] -> Bool
 isSuffixOf (x:xs) (y:ys) = isPrefixOf (reverse $ x:xs) (reverse $ y:ys)
 
--- zip
--- zipWith
+zip :: [a] -> [b] -> [(a,b)]
+zip (x:xs) (y:ys) = (x,y) : (zip xs ys)
+zip _ _ = []
+
+zipWith :: (a -> b -> c) -> [a] -> [b] -> [c]
+zipWith f (x:xs) (y:ys) = (f x y) : (zipWith f xs ys)
+zipWith _ _ _ = []
+
+-- define zip in terms of zipWith
+zip' :: [a] -> [b] -> [(a,b)]
+zip' = zipWith pair 
+
+-- define zipWith in terms of zipWith
+zipWith' :: (a -> b -> c) -> [a] -> [b] -> [c]
+zipWith' f xs = map (uncurry f) . zip xs
+
+pair :: a -> b -> (a,b)
+pair x y = (x,y)
 
 -- intercalate
 -- nub
