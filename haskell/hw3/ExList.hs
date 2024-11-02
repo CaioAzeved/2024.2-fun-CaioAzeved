@@ -225,11 +225,12 @@ repeat :: a -> [a]
 repeat x = cycle [x]
 
 replicate :: Int -> a -> [a]
-replicate 0 _ = []
+replicate z x = take z (repeat x)
+{-replicate 0 _ = []
 replicate n x =
   if n > 0
   then x:(replicate (n-1) x)
-  else error"Tente um índice não negativo"
+  else error"Tente um índice não negativo"-}
 
 -- isPrefixOf
 -- isInfixOf
