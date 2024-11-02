@@ -217,16 +217,20 @@ fold :: a -> (a -> a -> a) -> [a] -> a
 fold i op [] = i
 fold i op (x : xs) = op x (fold i op xs)
 
--- cycle
--- repeat
-{-
+cycle :: [a] -> [a]
+cycle [] = []
+cycle (x:xs) = x:xs ++ cycle (x:xs)
+
+repeat :: a -> [a]
+repeat x = cycle [x]
+
 replicate :: Int -> a -> [a]
 replicate 0 _ = []
 replicate n x =
   if n > 0
-  then
-  else
--}
+  then x:(replicate (n-1) x)
+  else error"Tente um índice não negativo"
+
 -- isPrefixOf
 -- isInfixOf
 -- isSuffixOf
