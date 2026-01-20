@@ -274,7 +274,7 @@ nub :: Eq a => [a] -> [a]
 nub [] = []
 nub (x:xs) = x:(filter (x /=) (nub xs))
 
--- splitAt
+-- splitAt :: Int -> [a] -> ([a], [a])
 -- what is the problem with the following?:
 -- splitAt n xs  =  (take n xs, drop n xs)
 
